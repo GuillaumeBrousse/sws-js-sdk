@@ -10,14 +10,19 @@ branches:
   only:
   - master
   - "/^v\\d+\\.\\d+(\\.\\d+)?(-\\S*)?$/"
+before_install:
+  - npm prune
+
 install:
-- npm install
+  - npm install
 script:
-- npm run lint
-- npm run test
-- npm run test-integration
+  - npm run lint
+  - npm run test
+  - npm run test-integration
+  - npm run test-coverage
 after_success:
-- npm run docs
+  - npm run docs
+  - npm run test-coveralls
 addons:
   artifacts:
     s3_region: us-east-1
@@ -31,4 +36,4 @@ notifications:
   on_success: change
   on_failure: always
 after_script:
-- "node ./docversions.js"
+  - "node ./docversions.js"
