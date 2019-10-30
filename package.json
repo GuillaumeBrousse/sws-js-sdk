@@ -6,8 +6,6 @@
   "scripts": {
     "lint": "./node_modules/.bin/eslint ./src/*",
     "test": "mocha ./test/spec/*.js --require @babel/register --recursive test/spec/*.js --reporter dot",
-    "test-integration": "mocha --require @babel/register --recursive test/integration/*.js",
-    "test-slow-integration": "mocha --require @babel/register --recursive test/slow/integration/*.js",
     "docs": "./node_modules/.bin/esdoc",
     "test:watch": "mocha -w ./test/spec/*.js --reporter dot",
     "test-coverage": "nyc --reporter=text mocha ./test/spec/*.js"
